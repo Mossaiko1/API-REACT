@@ -4,7 +4,7 @@ const useHook = (initForm = {}) => {
     const[formState, setFormState] = useState(initForm)
 
     const onHandleChange = (initForm) => {
-        localStorage.setItem("Ingreso", JSON.stringify(initForm))
+        localStorage.setItem("user", JSON.stringify(initForm))
     }
     const onSubmit = () => {
         setFormState(initForm)
