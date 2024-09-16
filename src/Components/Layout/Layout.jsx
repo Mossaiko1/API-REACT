@@ -1,6 +1,6 @@
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
-import Dashboard from "../Pages/Dashboard"
+import Dashboard from "../Pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import Contacts from "../Pages/Contact";
 import Services from "../Pages/Services";
@@ -9,7 +9,6 @@ import HomeRouter from "../../routes/home.routes";
 import PrivateRoute from "../../routes/PrivateRoutes";
 import Error404 from "../Pages/Error404";
 
-
 const Header = () => {
 
     return (
@@ -17,9 +16,7 @@ const Header = () => {
             <Routes>
                 <Route path="/" element={<HomeRouter />}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/Dashboard" element={
-                        <PrivateRoute><Dashboard /></PrivateRoute>
-                        } />
+                    <Route path="/Dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                     <Route path="/Services" element={<Services />} />
                     <Route path="/Contacts" element={<Contacts />} />
                     <Route path="/Login" element={<Login />} />
@@ -30,4 +27,5 @@ const Header = () => {
         </>
     );
 }
+
 export default Header;
