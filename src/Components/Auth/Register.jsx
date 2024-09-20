@@ -1,13 +1,13 @@
 import { useState } from "react";
-import useHook from "./Hooks/Hooks";
 import { useNavigate } from "react-router-dom";
+import useHook from "./Hooks/Data";
+import '../../styles/register.css';
 
 const Register = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const { onHandleChange, onSubmit } = useHook();
 
     const onRegister = (e) => {
@@ -18,58 +18,57 @@ const Register = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h2 className="text-center mb-4">Register</h2>
-                            <form onSubmit={onRegister}>
-                                <div className="mb-3">
-                                    <label htmlFor="name" className="form-label">Full Name</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="name"
-                                        name="name"
-                                        autoComplete="off"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="email"
-                                        name="email"
-                                        autoComplete="off"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">Password</label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="password"
-                                        name="password"
-                                        autoComplete="off"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                                <div className="d-grid">
-                                    <button type="submit" className="btn btn-primary">Register</button>
-                                </div>
-                            </form>
-                        </div>
+        <div className="container d-flex justify-content-center align-items-center min-vh-100">
+            <div className="card">
+                <h2 className="text-center">Registrarse</h2>
+                <form onSubmit={onRegister}>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nombre Completo</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Ingresa tu nombre completo"
+                            required
+                        />
                     </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="ejemplo@correo.com"
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Crea una contraseña"
+                            required
+                        />
+                    </div>
+                    <div className="d-grid">
+                        <button type="submit" className="btn">Registrarse</button>
+                    </div>
+                </form>
+                <div className="text-center mt-3">
+                    <button
+                        className="btn btn-link"
+                        onClick={() => navigate("/Login", { replace: true })}
+                    >
+                        ¿Ya tienes una cuenta? Inicia sesión
+                    </button>
                 </div>
             </div>
         </div>

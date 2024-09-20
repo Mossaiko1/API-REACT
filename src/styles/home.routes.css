@@ -1,0 +1,160 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar personalizado */
+.custom-navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px; /* Aumenta el padding para más espacio */
+}
+
+/* Estilos para el logo */
+.custom-logo {
+    width: 60px; /* Ajuste del tamaño del logo */
+    height: 60px; /* Ajuste del tamaño del logo */
+    border-radius: 50%; /* Hace que el logo sea circular */
+    object-fit: cover; /* Asegura que la imagen se ajuste dentro del círculo */
+    border: 3px solid #0078d7; /* Añadir un borde alrededor del logo */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+.brand-text {
+    font-size: 2rem; /* Aumenta el tamaño del texto */
+    font-weight: 700;
+    color: #094e87; /* Cambia el color para más contraste */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Botón de hamburguesa para móvil */
+.custom-toggler {
+    border-color: transparent;
+}
+
+/* Estilo de los enlaces del navbar */
+.custom-link {
+    color: #0078d7;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 12px 20px; /* Aumenta el padding para más separación */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    margin: 0 10px; /* Espacio entre los enlaces */
+}
+
+.custom-link:hover {
+    color: #0056b3;
+    background-color: #e9ecef; /* Fondo sutil en hover */
+    border-radius: 5px;
+}
+
+/* Botón de logout personalizado */
+.custom-logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.custom-logout-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Contenedor principal */
+.custom-container {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Nombre de usuario en la barra */
+.user-name {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.2rem;
+}
+
+/* Mejora de la experiencia en dispositivos pequeños */
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding: 10px;
+    }
+
+    .brand-text {
+        font-size: 1.5rem; /* Ajuste en dispositivos pequeños */
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .user-name {
+        font-size: 1rem;
+    }
+
+    .custom-logout-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Ajustar el padding del contenedor */
+    .custom-container {
+        padding: 20px;
+    }
+}
+
+/* Optimización para pantallas aún más pequeñas (móviles) */
+@media (max-width: 576px) {
+    .custom-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-text {
+        font-size: 1rem;
+    }
+
+    .user-name {
+        font-size: 0.9rem;
+    }
+
+    .custom-link {
+        font-size: 0.9rem;
+    }
+
+    .custom-logout-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .custom-container {
+        padding: 15px;
+    }
+
+    /* Ajustes de flex para el navbar en móviles */
+    .navbar-collapse {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-item {
+        margin-bottom: 10px;
+    }
+}

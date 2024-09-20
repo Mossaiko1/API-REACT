@@ -1,27 +1,25 @@
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { UseLoginContext } from "../Components/Context/LoginContext";
+import "../styles/home.routes.css";
 
 const HomeRouter = () => {
     const { login, isLogin, onLogOut } = useContext(UseLoginContext);
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg custom-navbar">
                 <div className="container-fluid">
-                    
-                    <Link className="navbar-brand" to="/">
+                    <Link className="navbar-brand d-flex align-items-center" to="/">
                         <img
-                            src="/path-to-your-logo/logo.png" // Cambia este path a la ruta de tu logo
-                            alt="App Logo"
-                            width="30"
-                            height="30"
-                            className="d-inline-block align-text-top me-2"
+                            src="https://img.freepik.com/fotos-premium/legendario-mr-monopoly-icono-atemporal-brillo-4k_1000124-345.jpg"
+                            alt="Logo"
+                            className="custom-logo me-3"
                         />
-                        AppEvaluate
+                        <span className="brand-text">Banco Personalizado</span>
                     </Link>
                     <button
-                        className="navbar-toggler"
+                        className="navbar-toggler custom-toggler"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarNav"
@@ -32,44 +30,47 @@ const HomeRouter = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav ms-auto">
                             {!isLogin && (
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/">Home</Link>
+                                    <Link className="nav-link custom-link" to="/">Inicio</Link>
                                 </li>
                             )}
                             <li className="nav-item">
-                                <Link className="nav-link" to="/Services">Services</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/Contacts">Contacts</Link>
+                                <Link className="nav-link custom-link" to="/Services">Servicios</Link>
                             </li>
                             {isLogin && (
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/Dashboard">Dashboard</Link>
+                                    <Link className="nav-link custom-link" to="/Clients">Clientes</Link>
+                                </li>
+                            )}
+                            {isLogin && (
+                                <li className="nav-item">
+                                    <Link className="nav-link custom-link" to="/Accounts">Cuentas</Link>
                                 </li>
                             )}
                             {!isLogin && (
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/Login">Log In</Link>
+                                        <Link className="nav-link custom-link" to="/Register">Regístrate</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/Register">Register</Link>
+                                        <Link className="nav-link custom-link" to="/Login">Iniciar sesión</Link>
                                     </li>
+
                                 </>
                             )}
                         </ul>
                         {isLogin && (
                             <div className="d-flex align-items-center">
-                                <span className="me-3">{login.name}</span>
-                                <button className="btn btn-outline-danger" onClick={onLogOut}>Log Out</button>
+                                <span className="me-3 user-name">{login.name}</span>
+                                <button className="btn custom-logout-btn" onClick={onLogOut}>Cerrar Sesión</button>
                             </div>
                         )}
                     </div>
                 </div>
             </nav>
-            <div className="container mt-4">
+            <div className="container custom-container">
                 <Outlet />
             </div>
         </>

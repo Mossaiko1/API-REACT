@@ -1,0 +1,107 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #e9ecef; /* Fondo gris claro */
+}
+
+/* Contenedor */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Fondo gris claro del contenedor */
+    border-radius: 12px; /* Esquinas redondeadas */
+}
+
+/* Tarjeta de inicio de sesión */
+.card {
+    background-color: white; /* Fondo blanco para el formulario */
+    border-radius: 12px; /* Esquinas redondeadas */
+    padding: 2rem; /* Padding interno */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título */
+h2 {
+    color: #333; /* Color oscuro para el título */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Estilo de los inputs */
+.form-control {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 0.75rem; /* Padding interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: border-color 0.3s ease; /* Transición suave */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Borde azul en foco */
+    outline: none; /* Sin contorno */
+}
+
+/* Etiquetas de los campos */
+.form-label {
+    font-size: 0.9rem;
+    color: #666; /* Gris suave */
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Botón de inicio de sesión/registro */
+.btn {
+    background-color: #007bff; /* Azul de Bootstrap */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    color: white; /* Texto blanco */
+    padding: 0.8rem; /* Padding interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Botón de enlace para iniciar sesión/registrarse */
+.btn-link {
+    background: none; /* Sin fondo */
+    color: #007bff; /* Color azul */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    padding: 0; /* Sin padding */
+    border: none; /* Sin borde */
+    text-decoration: underline; /* Subrayado */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.btn-link:hover {
+    color: #90bded; /* Azul más oscuro en hover */
+}
+
+/* Optimización para dispositivos móviles */
+@media (max-width: 576px) {
+    .card {
+        padding: 1.5rem; /* Ajustar el padding en móviles */
+    }
+
+    .form-control {
+        padding: 0.75rem; /* Ajustar padding en inputs */
+    }
+
+    .btn {
+        padding: 0.7rem; /* Ajustar padding en botones */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Tamaño de fuente más pequeño en móviles */
+    }
+}

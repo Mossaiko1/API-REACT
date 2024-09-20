@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
-import useHook from "./Hooks/Hooks";
+import Data from "../../Components/Auth/Hooks/Data";
 import { UseLoginContext } from "../Context/LoginContext";
 import { useNavigate } from "react-router-dom";
+import '../../styles/login.css';
 
 const Login = () => {
     const navigate = useNavigate();
     const loginLocalStorage = JSON.parse(localStorage.getItem("user"));
     const { onLoginAccess } = useContext(UseLoginContext);
-    const { onSubmit } = useHook();
+    const { onSubmit, onHandleChange } = Data();
 
     // Estados compartidos para Login y Register
     const [email, setEmail] = useState("");
@@ -20,12 +21,12 @@ const Login = () => {
     const onLogin = (e) => {
         e.preventDefault();
         if (!loginLocalStorage) {
-            alert("No data found.");
+            alert("No se encontraron datos.");
         } else if (email === loginLocalStorage.email && password === loginLocalStorage.password) {
             onLoginAccess(loginLocalStorage);
-            navigate("/Dashboard", { replace: true });
+            navigate("/Clients", { replace: true });
         } else {
-            alert("Email or password are incorrect.");
+            alert("El correo electrónico o la contraseña son incorrectos.");
         }
         onSubmit();
     };
@@ -38,66 +39,63 @@ const Login = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h2 className="text-center">
-                                {isRegister ? "Register" : "Log In"}
-                            </h2>
-                            <form onSubmit={isRegister ? onRegister : onLogin}>
-                                {isRegister && (
-                                    <div className="mb-3">
-                                        <label htmlFor="name" className="form-label">Full Name</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="name"
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            required
-                                        />
-                                    </div>
-                                )}
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">Password</label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                                <button type="submit" className="btn btn-primary w-100">
-                                    {isRegister ? "Register" : "Log In"}
-                                </button>
-                            </form>
-                            <div className="text-center mt-3">
-                                <button
-                                    className="btn btn-link"
-                                    onClick={() => setIsRegister(!isRegister)}
-                                >
-                                    {isRegister
-                                        ? "Already have an account? Log In"
-                                        : "Don't have an account? Register"}
-                                </button>
-                            </div>
+        <div className="container d-flex justify-content-center align-items-center min-vh-100">
+            <div className="card shadow-sm border-0 p-4" style={{ maxWidth: "400px", width: "100%" }}>
+                <h2 className="text-center mb-4">
+                    {isRegister ? "Crear Cuenta" : "Iniciar Sesión"}
+                </h2>
+                <form onSubmit={isRegister ? onRegister : onLogin}>
+                    {isRegister && (
+                        <div className="mb-3">
+                            <label htmlFor="name" className="form-label">Nombre Completo</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Ingresa tu nombre completo"
+                                required
+                            />
                         </div>
+                    )}
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="ejemplo@correo.com"
+                            required
+                        />
                     </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Crea una contraseña"
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-100">
+                        {isRegister ? "Registrarse" : "Iniciar Sesión"}
+                    </button>
+                </form>
+                <div className="text-center mt-3">
+                    <button
+                        className="btn btn-link"
+                        onClick={() => setIsRegister(!isRegister)}
+                    >
+                        {isRegister
+                            ? "¿Ya tienes una cuenta? Inicia sesión"
+                            : "¿No tienes una cuenta? Regístrate"}
+                    </button>
                 </div>
             </div>
         </div>

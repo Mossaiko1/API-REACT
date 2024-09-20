@@ -1,0 +1,83 @@
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+.alert {
+    border-radius: 0.25rem;
+}
+
+
+.text-center {
+    text-align: center; /* Asegúrate de que este estilo esté presente */
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto; /* Asegúrate de que esto esté presente */
+}
+
+form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.accounts-container hr {
+    border: none;
+    border-top:150px solid #007bff;
+    margin: 20px 0; 
+}
+
+
+.accounts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+}
+
+h4 {
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+button {
+    font-weight: 600;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #343a40;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+}
+
+.btn-primary, .btn-success, .btn-warning, .btn-info, .btn-danger {
+    border-radius: 5px;
+}
+

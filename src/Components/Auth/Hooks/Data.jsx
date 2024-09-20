@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useHook = (initForm = {}) => {
+const Data = (initForm = {}) => {
     const[formState, setFormState] = useState(initForm)
 
     const onHandleChange = (initForm) => {
@@ -16,4 +16,4 @@ const useHook = (initForm = {}) => {
     }
 }
 
-export default useHook;
+export default Data;

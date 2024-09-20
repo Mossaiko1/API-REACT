@@ -1,24 +1,31 @@
-import { createContext, useState } from "react";
+// Context/LoginContext.js
+import { createContext, useState, useContext } from "react";
 
 export const UseLoginContext = createContext();
 
-export const LoginContext = ({ children }) => {
-    
-    const [login, setLogin] = useState(null)
-    const [isLogin, setIsLogin] = useState(false)
+export const LoginProvider = ({ children }) => {
+    const [login, setLogin] = useState(null);
+    const [isLogin, setIsLogin] = useState(false);
 
     const onLoginAccess = (loginData) => {
-        setLogin(loginData)
-        setIsLogin(true)
-    }
+        setLogin(loginData);
+        setIsLogin(true);
+    };
 
     const onLogOut = () => {
-        setLogin(null)
-        setIsLogin(false)
-    }
+        setLogin(null);
+        setIsLogin(false);
+    };
+
+    const isAuthenticated = () => {
+        return isLogin && login !== null;
+    };
+
     return (
-        <UseLoginContext.Provider value={{ onLoginAccess, login, isLogin, onLogOut }}>
+        <UseLoginContext.Provider value={{ onLoginAccess, login, isLogin, onLogOut, isAuthenticated }}>
             {children}
         </UseLoginContext.Provider>
-    )
-}
+    );
+};
+
+export const useAuth = () => useContext(UseLoginContext);
